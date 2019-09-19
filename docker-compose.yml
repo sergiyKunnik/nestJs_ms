@@ -1,0 +1,37 @@
+version: '3'
+services:
+  main:
+    container_name: main
+    image: main_ms
+    restart: always
+    build: ./main
+    ports:
+      - "3000:3000"
+    # links:
+    #   - mongo
+  
+  order:
+    container_name: order
+    image: order_ms
+    restart: always
+    build: ./order
+    ports:
+      - "3010:3010"
+
+  comment:
+    container_name: comment
+    image: comment_ms
+    restart: always
+    build: ./order-comments
+    ports:
+      - "3011:3011"
+  
+  user:
+    container_name: user
+    image: user_ms
+    restart: always
+    build: ./user
+    ports:
+      - "3012:3012"
+
+# MYSQL CONTAINER
